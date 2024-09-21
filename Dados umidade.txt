@@ -1,0 +1,74 @@
+Passo 1: Configuração do Ambiente
+
+bash
+
+pip install pandas matplotlib seaborn jupyter
+
+Passo 2: Importando os Dados
+
+python
+
+import pandas as pd
+
+# Carregar os dados
+data = pd.read_csv('seus_dados.csv')
+
+# Exibir as primeiras linhas do dataframe
+print(data.head())
+
+Passo 3: Análise de Dados
+
+python
+
+# Estatísticas descritivas
+print(data.describe())
+
+# Verificando dados faltantes
+print(data.isnull().sum())
+
+Passo 4: Visualizações
+
+python
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Gráfico de barras
+plt.figure(figsize=(10, 6))
+sns.countplot(x='sua_coluna', data=data)
+plt.title('Distribuição de sua_coluna')
+plt.xlabel('sua_coluna')
+plt.ylabel('Contagem')
+plt.show()
+
+# Histograma
+plt.figure(figsize=(10, 6))
+sns.histplot(data['sua_coluna_numerica'], bins=30)
+plt.title('Histograma de sua_coluna_numerica')
+plt.xlabel('sua_coluna_numerica')
+plt.ylabel('Frequência')
+plt.show()
+
+Passo 5: Geração de Relatórios
+
+bash
+
+jupyter nbconvert --to pdf relatorio.ipynb
+
+Passo 6: Automatizando o Processo
+
+python
+
+def analisar_dados(file_path):
+    # Carregar dados
+    data = pd.read_csv(file_path)
+    
+    # Análises e visualizações
+    print(data.describe())
+    sns.countplot(x='sua_coluna', data=data)
+    plt.show()
+    
+    # Salvar figuras, relatórios etc. se necessário
+
+# Executar a função
+analisar_dados('seus_dados.csv')
